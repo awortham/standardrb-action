@@ -94,9 +94,7 @@ def run_standardrb
       annotation_level = @annotation_levels[severity]
       count = count + 1
 
-      if annotation_level == "failure"
-        conclusion = "failure"
-      end
+      conclusion = "failure"
 
       annotations.push({
                          "path" => path,
