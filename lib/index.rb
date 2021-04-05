@@ -61,6 +61,7 @@ def update_check(id, conclusion, output)
 
   resp = http.patch(path, body.to_json, @headers)
 
+  puts "----------resp.code.to_i == #{resp.code}"
   if resp.code.to_i >= 300
     raise resp.message
   end
@@ -94,6 +95,7 @@ def run_standardrb
       annotation_level = @annotation_levels[severity]
       count = count + 1
 
+      puts "--------------Setting conclusion to failure"
       conclusion = "failure"
 
       annotations.push({
@@ -125,6 +127,7 @@ def run
 
     update_check(id, conclusion, output)
 
+    puts "conclusion is #{conclusion}"
     fail if conclusion == "failure"
   rescue
     update_check(id, "failure", nil)
