@@ -118,6 +118,7 @@ def run_standardrb
 end
 
 def run
+  puts "Do we hit the run method?"
   id = create_check()
 
   begin
